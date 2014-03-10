@@ -1,0 +1,79 @@
+#### Add and remove users ####
+sudo useradd username
+sudo userdel username
+sudo rm -r /home/username
+
+#### Create a file x bytes ####
+dd if=/dev/zero of=upload_test bs=file_size count=1
+
+#### Mount partitions/CDROM ####
+sudo fdisk -l
+sudo mkdir /mnt/mount_name
+sudo mount -t auto -o ro -v /dev/sdaX /mnt/mount_name
+mount /dev/sr0 /mnt/cdrom #cdrom
+sudo umount /dev/sdbX
+
+#### VirtualBox Shared Folder ####
+sudo mkdir /media/vboxshared #not necessary
+sudo mount -t vboxsf SHARENAME /media/sf_shared
+Where SHARENAME is the name you specified in VirtualBox settings.
+
+#### SSH ####
+sudo apt-get install openssh-server
+ssh mrafay@192.168.1.1
+
+#### grep ####
+grep -l "search string in file" *
+
+#### solving host key verification failed ####
+ssh-keygen -R hostname
+
+#### diff ####
+see diff --help
+diff -r -q swift "swift (copy)"
+For piping: diff -r -q swift "swift (copy)" | tee filename.txt
+For avoiding input to terminal: diff -r -q swift "swift (copy)" > filename.txt OR diff -r -q swift "swift (copy)" >> filename.txt
+
+#### Number of bytes in a directory ####
+du -sb DIR
+du -shb swift
+
+#### md5sum of files ####
+md5sum filename
+
+#### chmod ####
+chmod 777 swift
+chmod mrafay swift
+chgrp mrafay swift
+
+#### update time ####
+sudo ntpdate time.nist.gov
+
+#### resize VirtualBox image ####
+VBoxManage modifyhd YOUR_HARD_DISK.vdi --resize SIZE_IN_MB
+
+#### Running fluxbox ####
+sudo apt-get install fluxbox xorg xdm
+sudo /etc/init.d/xdm start
+
+#### Install Java ####
+sudo add-apt-repository ppa:webupd8team/java
+sudo apt-get update
+sudo apt-get install oracle-java7-installer
+java -version
+
+#### Rebuilding apt cache ####
+cd /var/lib/apt
+sudo mv lists lists.old
+sudo mkdir -p lists/partial
+sudo apt-get update
+
+#### Apt lock error ####
+sudo rm /var/lib/apt/lists/lock
+sudo rm /var/cache/apt/archives/lock
+http://askubuntu.com/questions/15433/how-do-i-fix-a-could-not-get-lock-var-lib-dpkg-lock-problem
+
+####Create shared folders in virtual box ####
+Normal GUI VirtualBox procedure to specify the shared folder.
+sudo mount -t vboxsf -o uid=1000,gid=1000 share /home/username/host
+http://askubuntu.com/questions/30396/error-mounting-virtualbox-shared-folders-in-an-ubuntu-guest
