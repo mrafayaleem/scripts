@@ -1,0 +1,1 @@
+echo 'yourpassword' | sudo -S ifconfig wlan0 mtu 1400
