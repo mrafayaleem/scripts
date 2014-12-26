@@ -46,6 +46,10 @@
     export CLICOLOR=1
     export LSCOLORS=ExFxBxDxCxegedabagacad
 
+#  Add color to grep
+   export GREP_OPTIONS='--color=always'
+   export GREP_COLOR='1;35;40'
+
 
 #   -----------------------------
 #   2.  MAKE TERMINAL BETTER
