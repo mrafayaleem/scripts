@@ -1,5 +1,5 @@
 #  ---------------------------------------------------------------------------
-#  This profile is inspired by: http://natelandau.com/my-mac-osx-bash_profile/
+#  This profile is inspired by: http://natelandau.com/my-mac-osx-bash_profile/ 
 #
 #  Description:  This file holds all my BASH configurations and aliases
 #
@@ -29,6 +29,7 @@
 #   ------------------------------------------------------------
 #   export PATH="$PATH:/usr/local/bin/"
 #   export PATH="/usr/local/git/bin:/sw/bin/:/usr/local/bin:/usr/local/:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
+    export PYTHONPATH="$PYTHONPATH:/usr/bin/python"
 
 #   Set Default Editor (change 'Nano' to the editor of your choice)
 #   ------------------------------------------------------------
@@ -49,6 +50,9 @@
 #  Add color to grep
    export GREP_OPTIONS='--color=always'
    export GREP_COLOR='1;35;40'
+
+#  Import external profiles
+   source ~/.profile
 
 
 #   -----------------------------
@@ -103,6 +107,12 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
 fi
 
+#   git bash completion: enables git bash completion
+#   download from: curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
+#   ----------------------------------------
+if [ -f ~/.git-completion.bash ]; then
+      . ~/.git-completion.bash
+fi
 
 #   -------------------------------
 #   3.  FILE AND FOLDER MANAGEMENT
@@ -306,4 +316,3 @@ httpHeaders () { /usr/bin/curl -I -L $@ ; }             # httpHeaders:      Grab
 #   e.g.: hdiutil create -size 10m 10MB.dmg
 #   the above create files that are almost all zeros - if random bytes are desired
 #   then use: ~/Dev/Perl/randBytes 1048576 > 10MB.dat
-
