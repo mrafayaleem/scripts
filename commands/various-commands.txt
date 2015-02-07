@@ -77,3 +77,9 @@ http://askubuntu.com/questions/15433/how-do-i-fix-a-could-not-get-lock-var-lib-d
 Normal GUI VirtualBox procedure to specify the shared folder.
 sudo mount -t vboxsf -o uid=1000,gid=1000 share /home/username/host
 http://askubuntu.com/questions/30396/error-mounting-virtualbox-shared-folders-in-an-ubuntu-guest
+
+# export classpath
+export CLASSPATH=$CLASSPATH:/path_to.jar
+## to also add current dir
+export CLASSPATH=$CLASSPATH:/path_to.jar:.
+
